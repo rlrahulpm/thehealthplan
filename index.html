@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness Plan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6B7C93; /* Muted Slate Blue */
+            --accent-color: #88B04B; /* Muted Green */
+            --bg-color: #F7F9FB;     /* Very Light Blue-Grey */
+            --card-bg: #FFFFFF;
+            --text-main: #2D3748;
+            --text-light: #718096;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        .nav-tabs {
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .nav-tabs .nav-link {
+            border: 1px solid transparent;
+            border-top-left-radius: .25rem;
+            border-top-right-radius: .25rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .nav-tabs .nav-link.active {
+            color: var(--text-main);
+            background-color: var(--card-bg);
+            border-color: #dee2e6 #dee2e6 var(--card-bg);
+        }
+
+        .tab-content {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border: 1px solid #dee2e6;
+            border-top: none;
+        }
+        
+        /* Styles from diet_plan.html */
+        h1, h2, h3, h4, h5, h6, .card-header {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero {
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            padding: 4rem 1rem;
+            border-radius: 0 0 30px 30px;
+            margin-bottom: 2rem;
+            color: var(--text-main);
+        }
+        .hero h1 { font-weight: 600; color: #4a5568; }
+        .hero p { color: #4a5568; font-weight: 300; }
+        .card {
+            background: var(--card-bg);
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(112, 144, 176, 0.08);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+        .card-header {
+            background-color: transparent;
+            border-bottom: 1px solid #f0f0f0;
+            padding: 1.25rem 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+        .emoji-icon { margin-right: 12px; font-size: 1.3rem; vertical-align: middle; }
+        .note-text {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+        .rule-card {
+            background-color: #fffbeb;
+            border: 1px solid #fef3c7;
+        }
+        .rule-card .card-title { color: #92400e; }
+        .avoid-card {
+            background-color: #fff5f5;
+            border: 1px solid #fed7d7;
+        }
+        .avoid-card .card-header { color: #c53030; }
+        .highlight-badge {
+            display: inline-block;
+            background: #EDF2F7;
+            color: #4A5568;
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin: 4px;
+            font-weight: 500;
+        }
+        
+        /* Styles from yoga.html */
+        #yoga h1 { text-align: center; color: #2f6f6b; }
+        #yoga h2 { color: #245e5a; margin-top: 40px; }
+        #yoga h3 { margin-top: 20px; }
+        #yoga .card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 22px;
+            margin: 28px auto;
+            max-width: 900px;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+        }
+        #yoga img {
+            width: 100%;
+            border-radius: 12px;
+            margin: 14px 0;
+        }
+        #yoga .note {
+            background: #e8f5f3;
+            border-left: 6px solid #2f6f6b;
+            padding: 18px;
+            max-width: 900px;
+            margin: 30px auto;
+            font-size: 1.05em;
+        }
+        #yoga ul { margin-left: 18px; }
+        #yoga footer { text-align: center; margin: 50px 0 20px; color: #666; }
+
+    </style>
+</head>
+<body>
+
+    <div class="container py-4">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="diet-tab" data-bs-toggle="tab" data-bs-target="#diet" type="button" role="tab" aria-controls="diet" aria-selected="true">DIET PLAN</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="yoga-tab" data-bs-toggle="tab" data-bs-target="#yoga" type="button" role="tab" aria-controls="yoga" aria-selected="false">YOGA</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="diet" role="tabpanel" aria-labelledby="diet-tab">
+                <div class="hero text-center">
+                    <div class="container">
+                        <h1>Wellness Recovery Plan</h1>
+                        <p class="lead mt-2">Nourishing, soft, and healing foods</p>
+                    </div>
+                </div>
+
+                <div class="container pb-5">
+                    
+                    <div class="row justify-content-center mb-4">
+                        <div class="col-lg-10">
+                            <div class="d-flex flex-wrap justify-content-center gap-2">
+                                <span class="highlight-badge">🍲 Soft & Moist</span>
+                                <span class="highlight-badge">🥚 High Protein</span>
+                                <span class="highlight-badge">🌿 Light Spice</span>
+                                <span class="highlight-badge">🐢 Eat Slowly</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-header">
+                                    <span class="emoji-icon">🌅</span> Morning Start
+                                </div>
+                                <div class="card-body">
+                                    <p class="mb-1"><strong>On Waking:</strong> 1 glass warm water</p>
+                                    <p class="text-muted small mb-3">Optional: Add 1 tsp honey for soothing</p>
+                                    
+                                    <h6 class="mt-4 mb-3 text-uppercase small text-muted fw-bold">Breakfast Options</h6>
+                                    <ul>
+                                        <li>2 boiled eggs + soft toast / dosa</li>
+                                        <li>Veg omelette (minimal oil) + idli</li>
+                                        <li>Oats porridge with milk</li>
+                                        <li>Upma with peanuts (small qty)</li>
+                                    </ul>
+                                    <span class="note-text">💡 Eggs are excellent: soft, complete protein, and easy on the throat.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-header">
+                                    <span class="emoji-icon">🍚</span> Mid-Day & Lunch
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="mb-2 text-uppercase small text-muted fw-bold">Mid-Morning Snack</h6>
+                                    <ul class="mb-4">
+                                        <li>Fruit: banana, papaya, or apple</li>
+                                        <li>5 soaked almonds <strong>OR</strong> 1 glass buttermilk</li>
+                                    </ul>
+
+                                    <h6 class="mb-2 text-uppercase small text-muted fw-bold">Lunch (Balanced)</h6>
+                                    <ul>
+                                        <li>Steamed rice or soft roti</li>
+                                        <li>Dal (moong/toor)</li>
+                                        <li>Chicken/Fish curry (soft, non-spicy)</li>
+                                        <li>Vegetable sabzi & small bowl curd</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-header">
+                                    <span class="emoji-icon">🌙</span> Evening & Dinner
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="mb-2 text-uppercase small text-muted fw-bold">Evening Snack</h6>
+                                    <ul class="mb-4">
+                                        <li>Boiled egg</li>
+                                        <li>Roasted chana (small portion)</li>
+                                        <li>Herbal tea (chamomile / tulsi)</li>
+                                    </ul>
+
+                                    <h6 class="mb-2 text-uppercase small text-muted fw-bold">Dinner (Light)</h6>
+                                    <ul>
+                                        <li>Veg soup + shredded chicken</li>
+                                        <li>Soft roti + paneer curry</li>
+                                        <li>Curd rice + boiled egg</li>
+                                        <li>Khichdi + ghee (generous dal)</li>
+                                    </ul>
+                                    <span class="note-text">ℹ️ Please finish dinner before 8:00 PM.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card avoid-card mb-3">
+                                <div class="card-header border-0 bg-transparent">
+                                    <span class="emoji-icon">🛑</span> Limit / Avoid
+                                </div>
+                                <div class="card-body pt-0">
+                                    <ul class="mb-0">
+                                        <li>Dry grilled meats</li>
+                                        <li>Fried/Tandoori items</li>
+                                        <li>Coffee, alcohol, soda</li>
+                                        <li>Very spicy foods</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <span class="emoji-icon">💧</span> Hydration
+                                </div>
+                                <div class="card-body">
+                                    <ul>
+                                        <li>Sip warm water throughout the day</li>
+                                        <li>Avoid ice-cold drinks</li>
+                                        <li>Avoid gulping water</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="card rule-card text-center">
+                                <div class="card-body py-5">
+                                    <h4 class="card-title mb-3">🧠 The Golden Rule</h4>
+                                    <p class="lead mb-4" style="color: #744210;">Never eat when anxious or rushed.</p>
+                                    <div class="d-inline-flex align-items-center bg-white px-4 py-2 rounded-pill shadow-sm">
+                                        <span class="fw-bold text-muted">Pause</span>
+                                        <span class="mx-2 text-muted">&rarr;</span>
+                                        <span class="fw-bold text-muted">Breathe</span>
+                                        <span class="mx-2 text-muted">&rarr;</span>
+                                        <span class="fw-bold text-primary">Eat</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-5 mb-5">
+                        <p class="small text-muted">Expected Improvement: Throat tightness reduces in 7–14 days</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="tab-pane fade" id="yoga" role="tabpanel" aria-labelledby="yoga-tab">
+                <h1>Yoga & Breathing for Anxiety‑Related Throat Tightness</h1>
+
+                <div class="note">
+                Great 👍 Yoga + a few simple exercises can <strong>really calm this condition</strong>, because they relax the
+                <strong>throat, neck, vagus nerve, and nervous system</strong> — exactly what anxiety‑related globus needs.
+                <br><br>
+                This is a <strong>safe, beginner‑friendly routine</strong>. No force. No pain. No breath holding.
+                </div>
+
+                <h2>🧘‍♀️ YOGA (10–15 minutes daily)</h2>
+
+                <div class="card">
+                <h3>1️⃣ Balasana (Child’s Pose)</h3>
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArAAAAH0CAYAAADFZR5RAAABY2lDQ1BrQ0dDb2xvclNwYWNlRGlzcGxheVAzAAAokX2QsUvDUBDGv1aloHUQHRwcMolDlJIKuji0FURxCFXB6pS+pqmQxkeSIgU3/4GC/4EKzm4Whzo6OAiik+jm5KTgouV5L4mkInqP435877vjOCA5bnBu9wOoO75bXMorm6UtJfWMBL0gDObxnK6vSv6uP+P9PvTeTstZv///jcGK6TGqn5QZxl0fSKjE+p7PJe8Tj7m0FHFLshXyieRyyOeBZ71YIL4mVljNqBC/EKvlHt3q4brdYNEOcvu06WysyTmUE1jEDjxw2DDQhAId2T/8s4G/gF1yN+FSn4UafOrJkSInmMTLcMAwA5VYQ4ZSk3eO7ncX3U+NtYMnYKEjhLiItZUOcDZHJ2vH2tQ8MDIEXLW54RqB1EeZrFaB11NguASM3lDPtlfNauH26Tww8CjE2ySQOgS6LSE+joToHlPzA3DpfAEDp2ITpJYOWwAAAARjSUNQDA0AAW4D4+8AAACKZVhJZk1NACoAAAAIAAQBGgAFAAAAAQAAAD4BGwAFAAAAAQAAAEYBKAADAAAAAQACAACHaQAEAAAAAQAAAE4AAAAAAAAAkAAAAAEAAACQAAAAAQADkoYABwAAABIAAAB4oAIABAAAAAEAAAKwoAMABAAAAAEAAAH0AAAAAEFTQ0lJAAAAU2NyZWVuc2hvdGIB9q8AAAAJcEhZcwAAFiUAABYlAUlSJPAAAAHWaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJYTVAgQ29yZSA2LjAuMCI+CiAgIDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+CiAgICAgIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiCiAgICAgICAgICAgIHhtbG5zOmV4aWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vZXhpZi8xLjAvIj4KICAgICAgICAgPGV4aWY6UGl4ZWxZRGltZW5zaW9uPjUwMDwvZXhpZjpQaXhlbFlEaW1lbnNpb24+CiAgICAgICAgIDxleGlmOlBpeGVsWERpbWVuc2lvbj42ODg8L2V4aWY6UGl4ZWxYRGltZW5zaW9uPgogICAgICAgICA8ZXhpZjpVc2VyQ29tbWVudD5TY3JlZW5zaG90PC9leGlmOlVzZXJDb21tZW50PgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KVpXd/AAAABxpRE9UAAAAAgAAAAAAAAD6AAAAKAAAAPoAAAD6AAB0t8gT9vIAAEAASURBVHgB7N0H2G1HVT7wDQJSRRCkiYnSm9I7XEBBepMOktBRmhSRHroiqChNAb2ADWkivQiJ0ntROuQC0rEBgt3zX7+VvMdzPxK4N//ozeGueZ75dptZ5Z0537x77dmzT7aqtEwaBAaBQWAQGAQGgUFgEBgEtgSBkw2B3ZKWGjMHgUFgEBgEBoFBYBAYBBqBIbDTEQaBQWAQGAQGgUFgEBgEtgqBIbBb1Vxj7CAwCAwCg8AgMAgMAoPAENjpA4PAIDAIDAKDwCAwCAwCW4XAENitaq4xdhAYBAaBQWAQGAQGgUFgCOz0gUFgEBgEBoFBYBAYBAaBrUJgCOxWNdcYOwgMAoPAIDAIDAKDwCAwBHb6wCAwCAwCg8AgMAgMAoPAViEwBHarmmuMHQQGgUFgEBgEBoFBYBAYAjt9YBAYBAaBQWAQGAQGgUFgqxAYArtVzTXGDgKDwCAwCAwCg8AgMAgMgZ0+MAgMAoPA... [truncated]">
+                <p><strong>Why it helps:</strong> Deeply calms anxiety, relaxes throat and neck.</p>
+                <p><strong>How:</strong></p>
+                <ul>
+                <li>Kneel, sit back on heels</li>
+                <li>Forehead on mat</li>
+                <li>Hands forward</li>
+                <li>Breathe slowly for <strong>1–2 minutes</strong></li>
+                </ul>
+                </div>
+
+                <div class="card">
+                <h3>2️⃣ Marjaryasana–Bitilasana (Cat–Cow)</h3>
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAowAAAKUCAYAAACOtmkgAAABY2lDQ1BrQ0dDb2xvclNwYWNlRGlzcGxheVAzAAAokX2QsUvDUBDGv1aloHUQHRwcMolDlJIKuji0FURxCFXB6pS+pqmQxkeSIgU3/4GC/4EKzm4Whzo6OAiik+jm5KTgouV5L4mkInqP435877vjOCA5bnBu9wOoO75bXMorm6UtJfWMBL0gDObxnK6vSv6uP+P9PvTeTstZv///jcGK6TGqn5QZxl0fSKjE+p7PJe8Tj7m0FHFLshXyieRyyOeBZ71YIL4mVljNqBC/EKvlHt3q4brdYNEOcvu06WysyTmUE1jEDjxw2DDQhAId2T/8s4G/gF1yN+FSn4UafOrJkSInmMTLcMAwA5VYQ4ZSk3eO7ncX3U+NtYMnYKEjhLiItZUOcDZHJ2vH2tQ8MDIEXLW54RqB1EeZrFaB11NguASM3lDPtlfNauH26Tww8CjE2ySQOgS6LSE+joToHlPzA3DpfAEDp2ITpJYOWwAAAARjSUNQDA0AAW4D4+8AAACKZVhJZk1NACoAAAAIAAQBGgAFAAAAAQAAAD4BGwAFAAAAAQAAAEYBKAADAAAAAQACAACHaQAEAAAAAQAAAE4AAAAAAAAAkAAAAAEAAACQAAAAAQADkoYABwAAABIAAAB4oAIABAAAAAEAAAKMoAMABAAAAAEAAAKUAAAAAEFTQ0lJAAAAU2NyZWVuc2hvdK/hdFUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAHWaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJYTVAgQ29yZSA2LjAuMCI+CiAgIDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+CiAgICAgIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiCiAgICAgICAgICAgIHhtbG5zOmV4aWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vZXhpZi8xLjAvIj4KICAgICAgICAgPGV4aWY6UGl4ZWxZRGltZW5zaW9uPjY2MDwvZXhpZjpQaXhlbFlEaW1lbnNpb24+CiAgICAgICAgIDxleGlmOlBpeGVsWERpbWVuc2lvbj42NTI8L2V4aWY6UGl4ZWxYRGltZW5zaW9uPgogICAgICAgICA8ZXhpZjpVc2VyQ29tbWVudD5TY3JlZW5zaG90PC9leGlmOlVzZXJDb21tZW50PgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KeyNd+QAAABxpRE9UAAAAAgAAAAAAAAFKAAAAKAAAAUoAAAFKAADkLM6ekLgAAEAASURBVHgB7L0JcF1Xeh74vf1hBwiAIAjupEiKWqmd2lpqSW21pN7c7i0dx3F7ycTlsWuSTGpqaqqcTBZXucrlVMpOJY5n7HESx+622u3udrvVUkutnZIoLlpIivtOggCxLw9vne875168B5AESYkA8Yj/UHc759yzfOdC53v/f/7/REoMsGAIGAKGgCFgCBgChoAhYAhcBIGIEcaLIGPRhoAhYAgYAoaAIWAIGAIOASOM9iEYAoaAIWAIGAKGgCFgCMyIgBHGGeGxREPAEDAEDAFDwBAwBAwBI4z2DRgChoAhYAgYAoaAIWAIzIiAEcYZ4bFEQ8AQMAQMAUPAEDAEDAEjjPYNGAKGgCFgCBgChoAhYAjMiIARxhnhsURDwBAwBAwBQ8AQMAQMASOM9g0YAoaAIWAIGAKGgCFgCMyIgBHGGeGxREPAEDAEDAFDwBAwBAwBI4z2DRgChoAhYAgYAoaAIWAIzIiAEcYZ... [truncated]">
+                <p><strong>Why:</strong> Releases neck, chest, and spine tension.</p>
+                <p><strong>How:</strong></p>
+                <ul>
+                <li>Inhale → arch back, lift chin</li>
+                <li>Exhale → round back, drop chin</li>
+                <li><strong>10 slow rounds</strong></li>
+                </ul>
+                </div>
+
+                <div class="card">
+                <h3>3️⃣ Setu Bandhasana (Bridge Pose)</h3>
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA9oAAAHUCAYAAADFglAeAAABY2lDQ1BrQ0dDb2xvclNwYWNlRGlzcGxheVAzAAAokX2QsUvDUBDGv1aloHUQHRwcMolDlJIKuji0FURxCFXB6pS+pqmQxkeSIgU3/4GC/4EKzm4Whzo6OAiik+jm5KTgouV5L4mkInqP435877vjOCA5bnBu9wOoO75bXMorm6UtJfWMBL0gDObxnK6vSv6uP+P9PvTeTstZv///jcGK6TGqn5QZxl0fSKjE+p7PJe8Tj7m0FHFLshXyieRyyOeBZ71YIL4mVljNqBC/EKvlHt3q4brdYNEOcvu06WysyTmUE1jEDjxw2DDQhAId2T/8s4G/gF1yN+FSn4UafOrJkSInmMTLcMAwA5VYQ4ZSk3eO7ncX3U+NtYMnYKEjhLiItZUOcDZHJ2vH2tQ8MDIEXLW54RqB1EeZrFaB11NguASM3lDPtlfNauH26Tww8CjE2ySQOgS6LSE+joToHlPzA3DpfAEDp2ITpJYOWwAAAARjSUNQDA0AAW4D4+8AAACKZVhJZk1NACoAAAAIAAQBGgAFAAAAAQAAAD4BGwAFAAAAAQAAAEYBKAADAAAAAQACAACHaQAEAAAAAQAAAE4AAAAAAAAAkAAAAAEAAACQAAAAAQADkoYABwAAABIAAAB4oAIABAAAAAEAAAPaoAMABAAAAAEAAAHUAAAAAEFTQ0lJAAAAU2NyZWVuc2hvdADwOY0AAAAJcEhZcwAAFiUAABYlAUlSJPAAAAHWaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJYTVAgQ29yZSA2LjAuMCI+CiAgIDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+CiAgICAgIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiCiAgICAgICAgICAgIHhtbG5zOmV4aWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vZXhpZi8xLjAvIj4KICAgICAgICAgPGV4aWY6UGl4ZWxZRGltZW5zaW9uPjQ2ODwvZXhpZjpQaXhlbFlEaW1lbnNpb24+CiAgICAgICAgIDxleGlmOlBpeGVsWERpbWVuc2lvbj45ODY8L2V4aWY6UGl4ZWxYRGltZW5zaW9uPgogICAgICAgICA8ZXhpZjpVc2VyQ29tbWVudD5TY3JlZW5zaG90PC9leGlmOlVzZXJDb21tZW50PgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4K+FZ/IAAAABxpRE9UAAAAAgAAAAAAAADqAAAAKAAAAOoAAADqAABQcgmEbeUAAEAASURBVHgB7J2Jlx21mber3W7vGIM3tiRmCcmcfFlOkjmTTObM/P0zEwLhQNgHAwGDwaxhMV7606Pbv/bryu12u129+PKI1FVJevVK9ZSc07+SSrW02sJgkIAEJCABCUhAAhKQgAQkIAEJSGASAksK7Uk46kQCEpCABCQgAQlIQAISkIAEJNAJKLQdCBKQgAQkIAEJSEACEpCABCQggQkJKLQnhKkrCUhAAhKQgAQkIAEJSEACEpCAQtsxIAEJSEACEpCABCQgAQlIQAISmJCAQntCmLqSgAQkIAEJSEACEpCABCQgAQkotB0DEpCABCQgAQlIQAISkIAEJCCBCQkotCeEqSsJSEACEpCABCQgAQlIQAISkIBC2zEgAQlIQAISkIAEJCABCUhAAhKYkIBCe0KYupKABCQgAQlIQAISkIAEJCABCSi0HQMSkIAEJCABCUhAAhKQgAQkIIEJCSi0J4SpKwlIQAISkIAE... [truncated]">
+                <p><strong>Why:</strong> Opens chest & throat, improves blood flow.</p>
+                <p><strong>How:</strong></p>
+                <ul>
+                <li>Lie on back, knees bent</li>
+                <li>Lift hips gently</li>
+                <li>Hold <strong>15–30 seconds</strong></li>
+                <li>Repeat <strong>2 times</strong></li>
+                </ul>
+                </div>
+
+                <div class="card">
+                <h3>4️⃣ Viparita Karani (Legs Up the Wall)</h3>
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA5IAAAKUCAYAAAB2Xwe7AAABY2lDQ1BrQ0dDb2xvclNwYWNlRGlzcGxheVAzAAAokX2QsUvDUBDGv1aloHUQHRwcMolDlJIKuji0FURxCFXB6pS+pqmQxkeSIgU3/4GC/4EKzm4Whzo6OAiik+jm5KTgouV5L4mkInqP435877vjOCA5bnBu9wOoO75bXMorm6UtJfWMBL0gDObxnK6vSv6uP+P9PvTeTstZv///jcGK6TGqn5QZxl0fSKjE+p7PJe8Tj7m0FHFLshXyieRyyOeBZ71YIL4mVljNqBC/EKvlHt3q4brdYNEOcvu06WysyTmUE1jEDjxw2DDQhAId2T/8s4G/gF1yN+FSn4UafOrJkSInmMTLcMAwA5VYQ4ZSk3eO7ncX3U+NtYMnYKEjhLiItZUOcDZHJ2vH2tQ8MDIEXLW54RqB1EeZrFaB11NguASM3lDPtlfNauH26Tww8CjE2ySQOgS6LSE+joToHlPzA3DpfAEDp2ITpJYOWwAAAARjSUNQDA0AAW4D4+8AAACKZVhJZk1NACoAAAAIAAQBGgAFAAAAAQAAAD4BGwAFAAAAAQAAAEYBKAADAAAAAQACAACHaQAEAAAAAQAAAE4AAAAAAAAAkAAAAAEAAACQAAAAAQADkoYABwAAABIAAAB4oAIABAAAAAEAAAOSoAMABAAAAAEAAAKUAAAAAEFTQ0lJAAAAU2NyZWVuc2hvdHP5P/0AAAAJcEhZcwAAFiUAABYlAUlSJPAAAAHWaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJYTVAgQ29yZSA2LjAuMCI+CiAgIDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+CiAgICAgIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiCiAgICAgICAgICAgIHhtbG5zOmV4aWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vZXhpZi8xLjAvIj4KICAgICAgICAgPGV4aWY6UGl4ZWxZRGltZW5zaW9uPjY2MDwvZXhpZjpQaXhlbFlEaW1lbnNpb24+CiAgICAgICAgIDxleGlmOlBpeGVsWERpbWVuc2lvbj45MTQ8L2V4aWY6UGl4ZWxYRGltZW5zaW9uPgogICAgICAgICA8ZXhpZjpVc2VyQ29tbWVudD5TY3JlZW5zaG90PC9leGlmOlVzZXJDb21tZW50PgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4K8TlrowAAABxpRE9UAAAAAgAAAAAAAAFKAAAAKAAAAUoAAAFKAAChtcpDABgAAEAASURBVHgB7J0HnNTVuf6f6Tvbly6IiIoFMSoqAvaCWEhsGLEkamJijMm96fef3nNTbkxMTDOJJbEnduwoVgQLdixRQAHp23enz/yf98wOLrgI4uzM7MxzVnbab37nnO/ZfD73e9/3vMezePEbGaiJgAiIgAiIgAiIgAiIQFkR8HI2/D9zPRkkkwm0tragpqYaqVRqq2fp8Xi2+lpdKAKVRsAjkay0Jdd8RUAEREAEREAERKASCGRF0lwwkYyjra0V4XAV0un0Vk9eIrnVqHRhBRKQSFbgomvKIiACIiACIiACIlD+BDYWyfb2VoRCIWQyW5+MJ5Es/78SzXDbCUgkt52dvikCIiACIiACIiACIlCyBCSSJbs0GlhZEJBIlsUyahIiIAIiIAIiIAIiIAIbE5BIbsxDr0QgvwQkkvnlqbuJgAiIgAiIgAiIgAiUBAGJZEksgwZRtgQkkmW7tJqYCIiACIiACIiACFQy... [truncated]">
+                <p><strong>Why:</strong> Strong anxiety calmer, relaxes throat nerves.</p>
+                <p><strong>How:</strong></p>
+                <ul>
+                <li>Lie on back, legs on wall</li>
+                <li>Arms relaxed</li>
+                <li><strong>2–3 minutes</strong></li>
+                </ul>
+                </div>
+
+                <h2>🌬️ BREATHING (VERY IMPORTANT)</h2>
+
+                <div class="card">
+                <h3>5️⃣ Bhramari Pranayama</h3>
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAwwAAALICAYAAADScXdtAAABY2lDQ1BrQ0dDb2xvclNwYWNlRGlzcGxheVAzAAAokX2QsUvDUBDGv1aloHUQHRwcMolDlJIKuji0FURxCFXB6pS+pqmQxkeSIgU3/4GC/4EKzm4Whzo6OAiik+jm5KTgouV5L4mkInqP435877vjOCA5bnBu9wOoO75bXMorm6UtJfWMBL0gDObxnK6vSv6uP+P9PvTeTstZv///jcGK6TGqn5QZxl0fSKjE+p7PJe8Tj7m0FHFLshXyieRyyOeBZ71YIL4mVljNqBC/EKvlHt3q4brdYNEOcvu06WysyTmUE1jEDjxw2DDQhAId2T/8s4G/gF1yN+FSn4UafOrJkSInmMTLcMAwA5VYQ4ZSk3eO7ncX3U+NtYMnYKEjhLiItZUOcDZHJ2vH2tQ8MDIEXLW54RqB1EeZrFaB11NguASM3lDPtlfNauH26Tww8CjE2ySQOgS6LSE+joToHlPzA3DpfAEDp2ITpJYOWwAAAARjSUNQDA0AAW4D4+8AAACKZVhJZk1NACoAAAAIAAQBGgAFAAAAAQAAAD4BGwAFAAAAAQAAAEYBKAADAAAAAQACAACHaQAEAAAAAQAAAE4AAAAAAAAAkAAAAAEAAACQAAAAAQADkoYABwAAABIAAAB4oAIABAAAAAEAAAMMoAMABAAAAAEAAALIAAAAAEFTQ0lJAAAAU2NyZWVuc2hvdCyN9ZIAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAHWaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJYTVAgQ29yZSA2LjAuMCI+CiAgIDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+CiAgICAgIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiCiAgICAgICAgICAgIHhtbG5zOmV4aWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vZXhpZi8xLjAvIj4KICAgICAgICAgPGV4aWY6UGl4ZWxZRGltZW5zaW9uPjcxMjwvZXhpZjpQaXhlbFlEaW1lbnNpb24+CiAgICAgICAgIDxleGlmOlBpeGVsWERpbWVuc2lvbj43ODA8L2V4aWY6UGl4ZWxYRGltZW5zaW9uPgogICAgICAgICA8ZXhpZjpVc2VyQ29tbWVudD5TY3JlZW5zaG90PC9leGlmOlVzZXJDb21tZW50PgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KROuJvAAAABxpRE9UAAAAAgAAAAAAAAFkAAAAKAAAAWQAAAFkAAQelyAyWW8AAEAASURBVHgB7L0HlyXHcS4Yt2/3bd9jAcwMPOEIAiRACw4cRRIiKVrRSG//w57dv7Tn7Z6zZ9+uVu4dLaX39EBKdKJACgRIAgMzAwwGGG/ae7PfF1lZlZVlsq7rvt1TNXO7KjMjIyMiI7MiKl1j7urbO2Kv5MnGHOx7Q4QsNxp4aOMKwe/stIevatGl5aLIBv61e+3shCp9R3Z2ttpAa2hoxGiHorzbek9EQ7iGyr8N5EEOh4Zsee1gzYelbMLyyc+bjaVAYqFocml9ZhHkxhgcRpYJgK8HpmxWda/4MU3GLyehoH7aPQn4dcpW1W7NQNN99UwzAISh/kW1O9ifpNFWCe000m1ay6mSETAZOSBzOo7YHIyaaPoqEZTrJOUWmUaWC+JHhlAaCjtA7BfkhG392j7H3h2QzKOvVxkARoBMXy+IuyzvdkjXgHZIhcQ/nrT0xcI4FJy8TBDeoyuHf58SyqJMHj58brhCObn5... [truncated]">
+                <p><strong>Why:</strong> Vibrations relax throat muscles directly.</p>
+                <p><strong>How:</strong></p>
+                <ul>
+                <li>Inhale through nose</li>
+                <li>Exhale slowly while humming “mmm”</li>
+                <li><strong>5–7 rounds</strong></li>
+                </ul>
+                </div>
+
+                <div class="card">
+                <h3>6️⃣ Nadi Shodhana</h3>
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAwwAAALICAYAAADScXdtAAABY2lDQ1BrQ0dDb2xvclNwYWNlRGlzcGxheVAzAAAokX2QsUvDUBDGv1aloHUQHRwcMolDlJIKuji0FURxCFXB6pS+pqmQxkeSIgU3/4GC/4EKzm4Whzo6OAiik+jm5KTgouV5L4mkInqP435877vjOCA5bnBu9wOoO75bXMorm6UtJfWMBL0gDObxnK6vSv6uP+P9PvTeTstZv///jcGK6TGqn5QZxl0fSKjE+p7PJe8Tj7m0FHFLshXyieRyyOeBZ71YIL4mVljNqBC/EKvlHt3q4brdYNEOcvu06WysyTmUE1jEDjxw2DDQhAId2T/8s4G/gF1yN+FSn4UafOrJkSInmMTLcMAwA5VYQ4ZSk3eO7ncX3U+NtYMnYKEjhLiItZUOcDZHJ2vH2tQ8MDIEXLW54RqB1EeZrFaB11NguASM3lDPtlfNauH26Tww8CjE2ySQOgS6LSE+joToHlPzA3DpfAEDp2ITpJYOWwAAAARjSUNQDA0AAW4D4+8AAACKZVhJZk1NACoAAAAIAAQBGgAFAAAAAQAAAD4BGwAFAAAAAQAAAEYBKAADAAAAAQACAACHaQAEAAAAAQAAAE4AAAAAAAAAkAAAAAEAAACQAAAAAQADkoYABwAAABIAAAB4oAIABAAAAAEAAAMMoAMABAAAAAEAAALIAAAAAEFTQ0lJAAAAU2NyZWVuc2hvdCyN9ZIAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAHWaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJYTVAgQ29yZSA2LjAuMCI+CiAgIDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+CiAgICAgIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiCiAgICAgICAgICAgIHhtbG5zOmV4aWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vZXhpZi8xLjAvIj4KICAgICAgICAgPGV4aWY6UGl4ZWxZRGltZW5zaW9uPjcxMjwvZXhpZjpQaXhlbFlEaW1lbnNpb24+CiAgICAgICAgIDxleGlmOlBpeGVsWERpbWVuc2lvbj43ODA8L2V4aWY6UGl4ZWxYRGltZW5zaW9uPgogICAgICAgICA8ZXhpZjpVc2VyQ29tbWVudD5TY3JlZW5zaG90PC9leGlmOlVzZXJDb21tZW50PgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KROuJvAAAABxpRE9UAAAAAgAAAAAAAAFkAAAAKAAAAWQAAAFkAARvAHh9Fz8AAEAASURBVHgB7L1Zv13JceV3UBgKNU8UKfEnPvQHccsPll8s+bvbfpLUltUSKYljsUYAhcnrvyIiM3IP516gUBRbzQ3cnZExrIiMzL1P5tnDufM3f/1fX9653LmcbhLduYO8aak+LJDP2oSxwqHk8lL/+O/tyL7jT8RJOR6qQno5gWCPWM/8n/GBuymWm+Rg1HakWzI5iqgdTGTPZNSHWhJTNOVuawQsreBHWqbODmcCbUWub+1LvXKKUvGgaEWlv7yiS9tCT/tpED4ayCpyzfrVo6Vq/xGcMfourWQ3KLuM2uR1m8KN2EZtUem5gPZINtwec2VP+eQf8U78Luyw67HsxRO7N8A2Djwx0pB2RD4XpG4aabFZt11p11pHTXVnyv04c9Z9ySgHCHFMncBfAsmjJHh7+fTZ8WMouI3RkhXysBYNqaOyVPp5Co0412T81Ed82eYyPCjt4eWLy1tvoQvGPHeB+zJjjePJ2kYp... [truncated]">
+                <p><strong>Why:</strong> Balances nervous system.</p>
+                <p><strong>How:</strong></p>
+                <ul>
+                <li>Inhale left → exhale right</li>
+                <li>Inhale right → exhale left</li>
+                <li><strong>5 minutes</strong></li>
+                </ul>
+                </div>
+
+                <h2>🤸‍♀️ SIMPLE THROAT & NECK EXERCISES (Daily)</h2>
+
+                <div class="card">
+                <h3>🔹 Throat Release</h3>
+                <ul>
+                <li>Yawn gently (even fake yawns)</li>
+                <li>Stick tongue out → relax (<strong>5 times</strong>)</li>
+                </ul>
+
+                <h3>🔹 Neck Stretches</h3>
+                <ul>
+                <li>Tilt ear to shoulder → hold 10 seconds</li>
+                <li>Turn head left/right slowly (<strong>5 each side</strong>)</li>
+                </ul>
+
+                <h3>🔹 Jaw Relaxation</h3>
+                <ul>
+                <li>Open mouth wide → close slowly (<strong>5 times</strong>)</li>
+                </ul>
+                </div>
+
+                <h2>🚫 Important DOs & DON’Ts</h2>
+
+                <div class="card">
+                <ul>
+                <li>❌ No forceful throat exercises</li>
+                <li>❌ No breath holding</li>
+                <li>❌ No kapalbhati or fast breathing</li>
+                <li>✅ Gentle and slow only</li>
+                </ul>
+                </div>
+
+                <h2>⏰ Best Time to Practice</h2>
+
+                <div class="card">
+                <ul>
+                <li>Morning on empty stomach <strong>or</strong></li>
+                <li>Evening (2–3 hours after food)</li>
+                </ul>
+                </div>
+
+                <h2>🌸 What to Expect</h2>
+
+                <div class="card">
+                <ul>
+                <li><strong>Immediate calming</strong> after breathing</li>
+                <li>Throat pain reduces in <strong>5–7 days</strong></li>
+                <li>Sensation fades as anxiety loop breaks</li>
+                </ul>
+                </div>
+
+                <footer>
+                <p>Single‑file • Offline • Real images • Beginner‑safe 🌿</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
